@@ -78,3 +78,43 @@ Wanted
   * Encoding
 * REST
 
+
+
+Model implementation compared to Backbone.js
+--------------------------------------------
+
+
+Js                       | Objective C | Comment
+-------------------------|-------------|---------
+extend                   |             | Not idiomatic Objective C. Just use normal inheritence.
+constructor / initialize |             | Not idiomatic Objective C. Just use the normal constructor.
+get                      |             | Not idiomatic Objective C. Just use the properties.
+set                      |             | Not idiomatic Objective C. Just use the properties.
+escape                   |             | Useless outside a browser.
+has                      |             | Not idiomatic Objective C. Objective C is statically typed.
+unset                    |             | Not idiomatic Objective C. Objective C is statically typed.
+clear                    |             | Not idiomatic Objective C. Objective C is statically typed.
+id                       |             | Not idiomatic Objective C. Just use the id property.
+idAttribute              | idProperty  | Read only.
+cid                      |             | Not yet implemented.
+attributes               |             | Not idiomatic Objective C.
+changed                  |             | Not yet implemented.
+defaults                 |             | Not idiomatic Objective C.
+toJSON                   | JSON        |
+sync                     | sync        |
+fetch                    | fetch       |
+save                     | save        | Not idiomatic Objective C. Can't set multiple properties at once.
+destroy                  | destroy     |
+Underscore Methods (9)   |             | Not idiomatic Objective C.
+validate                 |             | Not yet implemented.
+validationError          |             | Not yet implemented.
+isValid                  |             | Not yet implemented.
+url                      |             | Read only.
+urlRoot                  |             | Not idiomatic Objective C.
+parse                    | parse       |
+clone                    |             | Not idiomatic Objective C.
+isNew                    |             | Not yet implemented.
+hasChanged               |             | Not yet implemented.
+changedAttributes        |             | Not yet implemented.
+previous                 |             | Not yet implemented.
+previousAttributes       |             | Not yet implemented.
