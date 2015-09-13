@@ -68,14 +68,14 @@ So far
 ------
 * Change events
 * Models
+* JSON
+  * Parsing
+  * Encoding
 
 Wanted
 ------
 * All relevant events
 * Collections
-* JSON
-  * Parsing
-  * Encoding
 * REST
 
 
@@ -84,37 +84,40 @@ Model implementation compared to Backbone.js
 --------------------------------------------
 
 
-Js                       | Objective C | Comment
--------------------------|-------------|---------
-extend                   |             | Not idiomatic Objective C. Just use normal inheritence.
-constructor / initialize |             | Not idiomatic Objective C. Just use the normal constructor.
-get                      |             | Not idiomatic Objective C. Just use the properties.
-set                      |             | Not idiomatic Objective C. Just use the properties.
-escape                   |             | Useless outside a browser.
-has                      |             | Not idiomatic Objective C. Objective C is statically typed.
-unset                    |             | Not idiomatic Objective C. Objective C is statically typed.
-clear                    |             | Not idiomatic Objective C. Objective C is statically typed.
-id                       |             | Not idiomatic Objective C. Just use the id property.
-idAttribute              | idProperty  | Read only.
-cid                      |             | Not yet implemented.
-attributes               |             | Not idiomatic Objective C.
-changed                  |             | Not yet implemented.
-defaults                 |             | Not idiomatic Objective C.
-toJSON                   | JSON        |
-sync                     | sync        |
-fetch                    | fetch       |
-save                     | save        | Not idiomatic Objective C. Can't set multiple properties at once.
-destroy                  | destroy     |
-Underscore Methods (9)   |             | Not idiomatic Objective C.
-validate                 |             | Not yet implemented.
-validationError          |             | Not yet implemented.
-isValid                  |             | Not yet implemented.
-url                      |             | Read only.
-urlRoot                  |             | Not idiomatic Objective C.
-parse                    | parse       |
-clone                    |             | Not idiomatic Objective C.
-isNew                    |             | Not yet implemented.
-hasChanged               |             | Not yet implemented.
-changedAttributes        |             | Not yet implemented.
-previous                 |             | Not yet implemented.
-previousAttributes       |             | Not yet implemented.
+Js                       | Objective C                                                                         | Comment
+-------------------------|-------------------------------------------------------------------------------------|---------
+extend                   |                                                                                     | Not idiomatic Objective C. Just use normal inheritence.
+constructor / initialize |                                                                                     | Not idiomatic Objective C. Just use the normal constructor.
+                         | + (id)modelWidhDictionary:(NSDictionary *)dictionary                                | This one, for example.
+get                      |                                                                                     | Not idiomatic Objective C. Just use the properties.
+set                      |                                                                                     | Not idiomatic Objective C. Just use the properties.
+escape                   |                                                                                     | Useless outside a browser.
+has                      |                                                                                     | Not idiomatic Objective C. Objective C is statically typed.
+unset                    |                                                                                     | Not idiomatic Objective C. Objective C is statically typed.
+clear                    |                                                                                     | Not idiomatic Objective C. Objective C is statically typed.
+id                       |                                                                                     | Not idiomatic Objective C. Just use the id property.
+idAttribute              | + (NSString *)idPropertyName                                                        | Read only.
+cid                      |                                                                                     | Not yet implemented.
+attributes               |                                                                                     | Not idiomatic Objective C.
+                         | + (NSSet *)propertyNames                                                            | Use this instead.
+changed                  |                                                                                     | Not yet implemented.
+defaults                 |                                                                                     | Not idiomatic Objective C.
+toJSON                   |                                                                                     | Not yet implemented.
+                         | - (NSDictionary *)toDictionaryWithOptions:(BackboneModelOption)options              | Sort of replaces toJSON.
+sync                     | - (void)syncUsingMethod:(NSString *)method withOptions:(BackboneModelOption)options |
+fetch                    | - (void)fetchWithOptions:(BackboneModelOption)options                               |
+save                     | - (void)saveWithOptions:(BackboneModelOption)options                                | Not idiomatic Objective C. Can't set multiple properties at once.
+destroy                  | - (void)destroyWithOptions:(BackboneModelOption)options                             |
+Underscore Methods (9)   |                                                                                     | Not idiomatic Objective C.
+validate                 |                                                                                     | Not yet implemented.
+validationError          |                                                                                     | Not yet implemented.
+isValid                  |                                                                                     | Not yet implemented.
+url                      | + (NSURL *)urlForModel:(BackboneModel *)model                                       | Read only.
+urlRoot                  |                                                                                     | Not idiomatic Objective C.
+parse                    | + (NSDictionary *)parse:(NSDictionary *)rawData                                     |
+clone                    |                                                                                     | Not idiomatic Objective C.
+isNew                    |                                                                                     | Not yet implemented.
+hasChanged               |                                                                                     | Not yet implemented.
+changedAttributes        |                                                                                     | Not yet implemented.
+previous                 |                                                                                     | Not yet implemented.
+previousAttributes       |                                                                                     | Not yet implemented.
