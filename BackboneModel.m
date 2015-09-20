@@ -203,7 +203,7 @@
 //					}
 
 					[invocation setArgument:(void *) &value
-									atIndex:0];
+									atIndex:2]; // 0: self, 1: selector, 2-n: arguments
 				} break;
 
 				default:
