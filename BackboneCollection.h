@@ -12,7 +12,17 @@
 
 @interface BackboneCollection : NSObject <BackboneEventsProtocol>
 
-@property(nonatomic, strong) NSArray *models;
+// Should perhaps be private.
+@property(nonatomic, strong) NSMutableArray <BackboneModel*> *models;
+
+- (void)add:(BackboneModel *)model;
+- (NSInteger)count;
+
+// Deserialization
++ (id)collectionWithArrayOfDictionaries:(NSArray *)array;
++ (NSString *)modelClassName;
+
+// Serialization
 - (NSArray *)arrayOfDictionariesWithOptions:(BackboneModelOption)options;
 
 @end

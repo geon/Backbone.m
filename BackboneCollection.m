@@ -10,6 +10,57 @@
 
 @implementation BackboneCollection
 
+- (BackboneCollection *)init {
+
+	if (self = [super init]) {
+
+		self.models = [NSMutableArray new];
+	}
+
+	return self;
+}
+
+
+- (void)add:(BackboneModel *)model {
+
+	NSLog(@"TODO: Check id and update in place if existing.");
+
+	[self.models addObject:model];
+	[self triggerEventNamed:@"add"
+				  withEvent:model];
+}
+
+
+- (NSInteger)count {
+
+	return self.models.count;
+}
+
+
++ (id)collectionWithArrayOfDictionaries:(NSArray *)array {
+
+	BackboneCollection *collection = [self new];
+
+	for (NSDictionary *dictionary in array) {
+
+		[collection add:
+		 [NSClassFromString([self modelClassName])
+		  modelWidhDictionary:dictionary]];
+	}
+
+	return collection;
+}
+
+
++ (NSString *)modelClassName {
+
+	// Please override.
+	assert(0);
+
+	return nil;
+}
+
+
 - (NSArray *)arrayOfDictionariesWithOptions:(BackboneModelOption)options {
 
 	NSMutableArray *dictionaries = [NSMutableArray arrayWithCapacity:self.models.count];
