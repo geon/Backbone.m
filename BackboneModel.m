@@ -94,9 +94,24 @@
 			switch ([signature getArgumentTypeAtIndex:2][0]) {
 
 				case 'c': {
-					char primitiveValue = [value characterAtIndex:0];
+
+					char primitiveValue;
+
+					// The "char" type can also be a BOOL, char integer or a character, so check the actual value.
+					if ([value isKindOfClass:[NSString class]]) {
+
+						// Interpret a string like a character.
+						primitiveValue = [value characterAtIndex:0];
+
+					} else {
+
+						// Interpret NSNumber as a char integer (possibly a BOOL).
+						primitiveValue = [value charValue];
+					}
+
 					[invocation setArgument:(void *) &primitiveValue
 									atIndex:2];
+
 				} break;
 
 				case 'i': {
