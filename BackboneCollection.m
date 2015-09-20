@@ -25,6 +25,19 @@
 
 	NSLog(@"TODO: Check id and update in place if existing.");
 
+	// Propagate change events from models.
+	[model onEventNamed:@"change"
+			  inContext:self
+		handleEventWith:^(BackboneCollection *self, NSString *propertyName) {
+
+			[self triggerEventNamed:@"change"
+						  withEvent:@{@"model": model,
+									  @"propertyName": propertyName}];
+
+			[self triggerEventNamed:[NSString stringWithFormat:@"change:%@", propertyName]
+						  withEvent:model];
+		}];
+
 	[self.models addObject:model];
 	[self triggerEventNamed:@"add"
 				  withEvent:model];
