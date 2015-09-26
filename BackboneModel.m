@@ -85,132 +85,16 @@
 		id value = [dictionary objectForKey:propertyName];
 		if (value) {
 
-			SEL selector = NSSelectorFromString([NSString stringWithFormat:@"set%@:", [propertyName capitalizedString]]);
-			NSMethodSignature * signature = [model.class instanceMethodSignatureForSelector:selector];
-			NSInvocation * invocation = [NSInvocation invocationWithMethodSignature:signature];
-			[invocation setTarget:model];
-			[invocation setSelector:selector];
-
-			switch ([signature getArgumentTypeAtIndex:2][0]) {
-
-				case 'c': {
-
-					char primitiveValue;
-
-					// The "char" type can also be a BOOL, char integer or a character, so check the actual value.
-					if ([value isKindOfClass:[NSString class]]) {
-
-						// Interpret a string like a character.
-						primitiveValue = [value characterAtIndex:0];
-
-					} else {
-
-						// Interpret NSNumber as a char integer (possibly a BOOL).
-						primitiveValue = [value charValue];
-					}
-
-					[invocation setArgument:(void *) &primitiveValue
-									atIndex:2];
-
-				} break;
-
-				case 'i': {
-					int primitiveValue = [value intValue];
-					[invocation setArgument:(void *) &primitiveValue
-									atIndex:2];
-				} break;
-
-				case 's': {
-					short primitiveValue = [value shortValue];
-					[invocation setArgument:(void *) &primitiveValue
-									atIndex:2];
-				} break;
-
-				case 'l': {
-					long primitiveValue = [value longValue];
-					[invocation setArgument:(void *) &primitiveValue
-									atIndex:2];
-				} break;
-
-				case 'q': {
-					long long primitiveValue = [value longLongValue];
-					[invocation setArgument:(void *) &primitiveValue
-									atIndex:2];
-				} break;
-
-				case 'C': {
-					unsigned char primitiveValue = [value unsignedCharValue];
-					[invocation setArgument:(void *) &primitiveValue
-									atIndex:2];
-				} break;
-
-				case 'I': {
-					unsigned int primitiveValue = [value unsignedIntValue];
-					[invocation setArgument:(void *) &primitiveValue
-									atIndex:2];
-				} break;
-
-				case 'S': {
-					unsigned short primitiveValue = [value unsignedShortValue];
-					[invocation setArgument:(void *) &primitiveValue
-									atIndex:2];
-				} break;
-
-				case 'L': {
-					unsigned long primitiveValue = [value unsignedLongValue];
-					[invocation setArgument:(void *) &primitiveValue
-									atIndex:2];
-				} break;
-
-				case 'Q': {
-					unsigned long long primitiveValue = [value unsignedLongLongValue];
-					[invocation setArgument:(void *) &primitiveValue
-									atIndex:2];
-				} break;
-
-				case 'f': {
-					float primitiveValue = [value floatValue];
-					[invocation setArgument:(void *) &primitiveValue
-									atIndex:2];
-				} break;
-
-				case 'd': {
-					double primitiveValue = [value doubleValue];
-					[invocation setArgument:(void *) &primitiveValue
-									atIndex:2];
-				} break;
-
-				case 'B': {
-					BOOL primitiveValue = [value boolValue];
-					[invocation setArgument:(void *) &primitiveValue
-									atIndex:2];
-				} break;
-
-				case '*': {
-					const char *primitiveValue = [value cStringUsingEncoding:NSUTF8StringEncoding];
-					[invocation setArgument:(void *) &primitiveValue
-									atIndex:2];
-				} break;
-
-				case '@': {
-
-// TODO: Support models and collections recursively.
-
-//					Class modelClass = [self modelClassForPropertyName:propertyName];
-//					if (modelClass) {
+// Handle this manually in parse: instead?
+//			// Deserialize models and collections recursively.
+//			Class modelClass = [self modelClassForPropertyName:propertyName];
+//			if (modelClass) {
 //
-//						value = [modelClass modelWidhDictionary:value];
-//					}
+//				value = [modelClass modelWidhDictionary:value];
+//			}
 
-					[invocation setArgument:(void *) &value
-									atIndex:2]; // 0: self, 1: selector, 2-n: arguments
-				} break;
-
-				default:
-					assert(0);
-			}
-
-			[invocation invoke];
+			[model setValue:value
+					 forKey:propertyName];
 		}
 	}
 
@@ -232,95 +116,17 @@
 
 	for (NSString *propertyName in self.class.propertyNames) {
 
-		SEL selector = NSSelectorFromString(propertyName);
-		NSMethodSignature * signature = [self.class instanceMethodSignatureForSelector:selector];
-		NSInvocation * invocation = [NSInvocation invocationWithMethodSignature:signature];
-		[invocation setTarget:self];
-		[invocation setSelector:selector];
-		[invocation invoke];
+		id value = [self valueForKey:propertyName];
 
-		void *untypedValue = malloc(signature.methodReturnLength);
-		[invocation getReturnValue:untypedValue];
+		// Serialize models and collections recursively.
+		if ([value isKindOfClass:[BackboneModel class]]) {
 
-		id value = nil;
-		switch (signature.methodReturnType[0]) {
+			value = [(BackboneModel *)value toDictionaryWithOptions:options];
 
-			case 'c':
-				value = [NSString stringWithFormat:@"%c", *((char *) untypedValue)];
-				break;
+		} else if ([value isKindOfClass:[BackboneCollection class]]) {
 
-			case 'i':
-				value = [NSNumber numberWithInt:*((int *) untypedValue)];
-				break;
-
-			case 's':
-				value = [NSNumber numberWithShort:*((short *) untypedValue)];
-				break;
-
-			case 'l':
-				value = [NSNumber numberWithLong:*((long *) untypedValue)];
-				break;
-
-			case 'q':
-				value = [NSNumber numberWithLongLong:*((long long *) untypedValue)];
-				break;
-
-			case 'C':
-				value = [NSNumber numberWithUnsignedChar:*((unsigned char *) untypedValue)];
-				break;
-
-			case 'I':
-				value = [NSNumber numberWithUnsignedInt:*((unsigned int *) untypedValue)];
-				break;
-
-			case 'S':
-				value = [NSNumber numberWithUnsignedShort:*((unsigned short *) untypedValue)];
-				break;
-
-			case 'L':
-				value = [NSNumber numberWithUnsignedLong:*((unsigned long *) untypedValue)];
-				break;
-
-			case 'Q':
-				value = [NSNumber numberWithUnsignedLongLong:*((unsigned long long *) untypedValue)];
-				break;
-
-			case 'f':
-				value = [NSNumber numberWithFloat:*((float *) untypedValue)];
-				break;
-
-			case 'd':
-				value = [NSNumber numberWithDouble:*((double *) untypedValue)];
-				break;
-
-			case 'B':
-				value = [NSNumber numberWithBool:*((BOOL *) untypedValue)];
-				break;
-
-			case '*':
-				value = [NSString stringWithUTF8String:((char *) untypedValue)];
-				break;
-
-			case '@':
-				if ([value isKindOfClass:[BackboneModel class]]) {
-
-					value = [((__bridge BackboneModel *) untypedValue) toDictionaryWithOptions:options];
-
-				} else if ([value isKindOfClass:[BackboneCollection class]]) {
-
-					value = [((__bridge BackboneCollection *) untypedValue) arrayOfDictionariesWithOptions:options];
-
-				} else {
-
-					value = (__bridge id) untypedValue;
-				}
-				break;
-
-			default:
-				assert(0);
+			value = [(BackboneCollection *)value arrayOfDictionariesWithOptions:options];
 		}
-
-		free(untypedValue);
 
 		[dictionary setObject:value
 					   forKey:propertyName];
