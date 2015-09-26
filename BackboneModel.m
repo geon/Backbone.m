@@ -48,13 +48,20 @@
 	NSMutableSet *propertyNames = [NSMutableSet new];
 
 	unsigned int outCount, i;
-	objc_property_t *properties = class_copyPropertyList([self class], &outCount);
-	for(i = 0; i < outCount; i++) {
 
-		NSString *propertyName = [NSString stringWithUTF8String:property_getName(properties[i])];
-		[propertyNames addObject:propertyName];
+	Class class = self.class;
+	while (class && class != [BackboneModel class]) {
+
+		objc_property_t *properties = class_copyPropertyList(class, &outCount);
+		for(i = 0; i < outCount; i++) {
+
+			NSString *propertyName = [NSString stringWithUTF8String:property_getName(properties[i])];
+			[propertyNames addObject:propertyName];
+		}
+		free(properties);
+
+		class = class_getSuperclass(class);
 	}
-	free(properties);
 
 	return [NSSet setWithSet:propertyNames];
 }
