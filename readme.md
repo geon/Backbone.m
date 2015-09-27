@@ -66,18 +66,24 @@ Simple, no?
 
 So far
 ------
-* Change events
+* Events
+	* change
+	* add
+	* remove
+	* destroy
 * Models
+* Collections
 * JSON
   * Parsing
   * Encoding
 
+
 Wanted
 ------
 * All relevant events
-* Collections
+* Complete Collections API
 * REST
-
+* Docs
 
 
 Model implementation compared to Backbone.js
