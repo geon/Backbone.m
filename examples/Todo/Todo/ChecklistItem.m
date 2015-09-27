@@ -6,6 +6,7 @@
 //  Copyright © 2015 Victor Widell. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "ChecklistItem.h"
 
 @implementation ChecklistItem

@@ -6,9 +6,9 @@
 //  Copyright © 2015 Victor Widell. All rights reserved.
 //
 
-#import "BackboneCollection.h"
+#import "BackboneUITableViewCollection.h"
 #import "ChecklistItem.h"
 
-@interface Checklist : BackboneCollection
+@interface Checklist : BackboneUITableViewCollection
 
 @end

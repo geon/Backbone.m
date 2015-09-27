@@ -10,6 +10,8 @@
 		387488591BAF453E007A1282 /* Checklist.m in Sources */ = {isa = PBXBuildFile; fileRef = 387488541BAF453E007A1282 /* Checklist.m */; settings = {ASSET_TAGS = (); }; };
 		3874885A1BAF453E007A1282 /* ChecklistItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 387488561BAF453E007A1282 /* ChecklistItem.m */; settings = {ASSET_TAGS = (); }; };
 		3874885B1BAF453E007A1282 /* ChecklistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387488581BAF453E007A1282 /* ChecklistViewController.m */; settings = {ASSET_TAGS = (); }; };
+		387488611BB72143007A1282 /* BackboneUITableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3874885F1BB72143007A1282 /* BackboneUITableViewModel.m */; settings = {ASSET_TAGS = (); }; };
+		387488641BB73DF5007A1282 /* BackboneUITableViewCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 387488631BB73DF5007A1282 /* BackboneUITableViewCollection.m */; settings = {ASSET_TAGS = (); }; };
 		38A301B51BA5A62600220262 /* BackboneCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A301B01BA5A62600220262 /* BackboneCollection.m */; };
 		38A301B61BA5A62600220262 /* BackboneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A301B21BA5A62600220262 /* BackboneModel.m */; };
 		38A301B71BA5A62600220262 /* NSObject+BackboneEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A301B41BA5A62600220262 /* NSObject+BackboneEvents.m */; };
@@ -38,6 +40,10 @@
 		387488561BAF453E007A1282 /* ChecklistItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChecklistItem.m; sourceTree = "<group>"; };
 		387488571BAF453E007A1282 /* ChecklistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChecklistViewController.h; sourceTree = "<group>"; };
 		387488581BAF453E007A1282 /* ChecklistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChecklistViewController.m; sourceTree = "<group>"; };
+		3874885E1BB72143007A1282 /* BackboneUITableViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackboneUITableViewModel.h; path = ../../../BackboneUITableViewModel.h; sourceTree = "<group>"; };
+		3874885F1BB72143007A1282 /* BackboneUITableViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BackboneUITableViewModel.m; path = ../../../BackboneUITableViewModel.m; sourceTree = "<group>"; };
+		387488621BB73DF5007A1282 /* BackboneUITableViewCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackboneUITableViewCollection.h; path = ../../../BackboneUITableViewCollection.h; sourceTree = "<group>"; };
+		387488631BB73DF5007A1282 /* BackboneUITableViewCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BackboneUITableViewCollection.m; path = ../../../BackboneUITableViewCollection.m; sourceTree = "<group>"; };
 		38A301AF1BA5A62600220262 /* BackboneCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackboneCollection.h; path = ../../../BackboneCollection.h; sourceTree = "<group>"; };
 		38A301B01BA5A62600220262 /* BackboneCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BackboneCollection.m; path = ../../../BackboneCollection.m; sourceTree = "<group>"; };
 		38A301B11BA5A62600220262 /* BackboneModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackboneModel.h; path = ../../../BackboneModel.h; sourceTree = "<group>"; };
@@ -102,6 +108,10 @@
 				38A301B01BA5A62600220262 /* BackboneCollection.m */,
 				38A301B11BA5A62600220262 /* BackboneModel.h */,
 				38A301B21BA5A62600220262 /* BackboneModel.m */,
+				3874885E1BB72143007A1282 /* BackboneUITableViewModel.h */,
+				3874885F1BB72143007A1282 /* BackboneUITableViewModel.m */,
+				387488621BB73DF5007A1282 /* BackboneUITableViewCollection.h */,
+				387488631BB73DF5007A1282 /* BackboneUITableViewCollection.m */,
 				38A301B31BA5A62600220262 /* NSObject+BackboneEvents.h */,
 				38A301B41BA5A62600220262 /* NSObject+BackboneEvents.m */,
 				387488531BAF453E007A1282 /* Checklist.h */,
@@ -249,8 +259,10 @@
 				3874885A1BAF453E007A1282 /* ChecklistItem.m in Sources */,
 				38C447291B9C719F0080B4F5 /* AppDelegate.m in Sources */,
 				3874885B1BAF453E007A1282 /* ChecklistViewController.m in Sources */,
+				387488611BB72143007A1282 /* BackboneUITableViewModel.m in Sources */,
 				38A301B61BA5A62600220262 /* BackboneModel.m in Sources */,
 				38A301B51BA5A62600220262 /* BackboneCollection.m in Sources */,
+				387488641BB73DF5007A1282 /* BackboneUITableViewCollection.m in Sources */,
 				38C447261B9C719F0080B4F5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

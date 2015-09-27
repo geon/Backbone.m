@@ -17,26 +17,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
 	self.collection = [Checklist collectionWithArrayOfDictionaries:
-					   @[@{@"id": @1, @"title": @"First", @"completed": @true},
-						 @{@"id": @2, @"title": @"Then", @"completed": @false},
-						 @{@"id": @3, @"title": @"Also", @"completed": @false}]];
+					   @[@{@"title": @"First", @"completed": @true},
+						 @{@"title": @"Then", @"completed": @false},
+						 @{@"title": @"Also", @"completed": @false}]];
 
-	[self.collection onEventNamed:@"change:completed"
-						inContext:self
-				  handleEventWith:^(ChecklistViewController *self, ChecklistItem *model) {
-
-					  NSInteger row = [self.collection.models indexOfObject:model];
-
-					  if (row != NSNotFound) {
-					  
-						  [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:row inSection:0]]
-												withRowAnimation:UITableViewRowAnimationFade];
-					  }
-				  }];
+	[self.collection setUpUITableViewEventHandlers:self.tableView];
 }
 
 
@@ -57,7 +45,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChecklistItem" forIndexPath:indexPath];
 
-	ChecklistItem *item = (ChecklistItem *) self.collection.models[indexPath.row];
+	ChecklistItem *item = (ChecklistItem *) [self.collection findByPropertyNamed:@"indexPath" isEqual:indexPath];
 
 	cell.textLabel.text = item.title;
 	cell.accessoryType = item.completed
@@ -70,30 +58,26 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-	ChecklistItem *item = (ChecklistItem *) self.collection.models[indexPath.row];
+	ChecklistItem *item = (ChecklistItem *) [self.collection findByPropertyNamed:@"indexPath" isEqual:indexPath];
 	item.completed = !item.completed;
 }
 
 
-/*
-// Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+	return YES;
 }
-*/
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+
+	if (editingStyle == UITableViewCellEditingStyleDelete) {
+
+		// Trigger deletion.
+		[[self.collection findByPropertyNamed:@"indexPath" isEqual:indexPath] destroyWithOptions:0];
+    }
+}
+
 
 /*
 // Override to support rearranging the table view.
@@ -118,5 +102,34 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+	[super setEditing:editing animated:animated];
+
+	if (editing) {
+
+		// Add the + button
+		UIBarButtonItem *addButton =
+		[[UIBarButtonItem alloc]
+		 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+		 target:self
+		 action:@selector(createModel:)];
+
+		self.navigationItem.leftBarButtonItem = addButton;
+
+	} else {
+
+		// remove the + button
+		self.navigationItem.leftBarButtonItem = nil;
+	}
+}
+
+- (void)createModel:(id)sender {
+
+	[self.collection add:
+	 [ChecklistItem modelWidhDictionary:
+	  @{@"title": @"New"}]];
+}
 
 @end

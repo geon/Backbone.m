@@ -6,9 +6,9 @@
 //  Copyright © 2015 Victor Widell. All rights reserved.
 //
 
-#import "BackboneModel.h"
+#import "BackboneUITableViewModel.h"
 
-@interface ChecklistItem : BackboneModel
+@interface ChecklistItem : BackboneUITableViewModel
 
 @property(nonatomic, assign) NSInteger id;
 @property(nonatomic, strong) NSString *title;
