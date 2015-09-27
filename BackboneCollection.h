@@ -12,11 +12,11 @@
 
 @interface BackboneCollection : NSObject <BackboneEventsProtocol>
 
-// Should perhaps be private.
-@property(nonatomic, strong) NSMutableArray <BackboneModel*> *models;
-
 - (void)add:(BackboneModel *)model;
 - (NSInteger)count;
+- (NSSet<BackboneModel *> *)unsorted;
+- (NSSet *)modelsPassingTest:(BOOL (^)(BackboneModel *model, BOOL *stop))predicate;
+- (BackboneModel *)findByPropertyNamed:(NSString *)propertyName isEqual:(id)value;
 
 // Deserialization
 + (id)collectionWithArrayOfDictionaries:(NSArray *)array;

@@ -8,13 +8,20 @@
 
 #import "BackboneCollection.h"
 
+@interface BackboneCollection ()
+
+@property(nonatomic, strong) NSMutableSet <BackboneModel*> *models;
+
+@end
+
+
 @implementation BackboneCollection
 
 - (BackboneCollection *)init {
 
 	if (self = [super init]) {
 
-		self.models = [NSMutableArray new];
+		self.models = [NSMutableSet new];
 	}
 
 	return self;
@@ -47,6 +54,32 @@
 - (NSInteger)count {
 
 	return self.models.count;
+}
+
+
+- (NSSet<BackboneModel *> *)unsorted {
+
+	return [NSSet setWithSet:self.models];
+}
+
+
+- (NSSet *)modelsPassingTest:(BOOL (^)(BackboneModel *model, BOOL *stop))predicate {
+
+	return [self.models objectsPassingTest:predicate];
+}
+
+
+- (BackboneModel *)findByPropertyNamed:(NSString *)propertyName isEqual:(id)value {
+
+	for (BackboneModel *model in self.models) {
+
+		if ([[model valueForKeyPath:propertyName] isEqual:value]) {
+
+			return model;
+		}
+	}
+
+	return nil;
 }
 
 
