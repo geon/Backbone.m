@@ -13,6 +13,7 @@
 @interface BackboneCollection : NSObject <BackboneEventsProtocol>
 
 - (void)add:(BackboneModel *)model;
+- (void)remove:(BackboneModel *)model;
 - (NSInteger)count;
 - (NSSet<BackboneModel *> *)unsorted;
 - (NSSet *)modelsPassingTest:(BOOL (^)(BackboneModel *model, BOOL *stop))predicate;

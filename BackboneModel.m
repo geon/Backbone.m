@@ -163,6 +163,10 @@
 
 	[self syncUsingMethod:@"DEL"
 			  withOptions:options];
+
+	// TODO: Do async after HTTP DEL succeeds.
+	// TODO: Respect options.
+	[self triggerEventNamed:@"destroy" withEvent:self];
 }
 
 

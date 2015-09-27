@@ -45,8 +45,27 @@
 						  withEvent:model];
 		}];
 
+	// Remove the model when destroyed.
+	[model onEventNamed:@"destroy"
+			  inContext:self
+		handleEventWith:^(BackboneCollection *self, id model) {
+
+			[self remove:model];
+
+			[self triggerEventNamed:@"destroy"
+						  withEvent:model];
+		}];
+
 	[self.models addObject:model];
 	[self triggerEventNamed:@"add"
+				  withEvent:model];
+}
+
+
+- (void)remove:(BackboneModel *)model {
+
+	[self.models removeObject:model];
+	[self triggerEventNamed:@"remove"
 				  withEvent:model];
 }
 
