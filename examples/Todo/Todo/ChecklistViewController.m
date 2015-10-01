@@ -6,9 +6,14 @@
 //  Copyright © 2015 Victor Widell. All rights reserved.
 //
 
+
 #import "ChecklistViewController.h"
 
+
 @interface ChecklistViewController ()
+
+@property (nonatomic, strong) KeyboardInputView *keyboardInput;
+@property (nonatomic, strong) IBOutlet KeyboardBar *keyboardBar;
 
 @end
 
@@ -25,6 +30,10 @@
 						 @{@"title": @"Also", @"completed": @false}]];
 
 	[self.collection setUpUITableViewEventHandlers:self.tableView];
+
+	self.keyboardInput = [KeyboardInputView viewWithKeyboardBar:self.keyboardBar
+													  superView:self.view
+													   delegate:self];
 }
 
 
@@ -109,27 +118,37 @@
 
 	if (editing) {
 
-		// Add the + button
+		// Add the + button.
 		UIBarButtonItem *addButton =
 		[[UIBarButtonItem alloc]
 		 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
 		 target:self
-		 action:@selector(createModel:)];
+		 action:@selector(showKeyboardInput:)];
 
 		self.navigationItem.leftBarButtonItem = addButton;
 
 	} else {
 
-		// remove the + button
+		// Remove the + button.
 		self.navigationItem.leftBarButtonItem = nil;
+
+		// Hide keyboard.
+		[self.keyboardInput hide];
 	}
 }
 
-- (void)createModel:(id)sender {
+
+- (void)showKeyboardInput:(id)sender {
+
+	[self.keyboardInput show];
+}
+
+
+- (void)inputString:(NSString *)string withKeyboardInputview:(KeyboardInputView *)view {
 
 	[self.collection add:
 	 [ChecklistItem modelWidhDictionary:
-	  @{@"title": @"New"}]];
+	  @{@"title": string}]];
 }
 
 @end

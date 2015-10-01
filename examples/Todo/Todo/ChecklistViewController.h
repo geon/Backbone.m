@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Checklist.h"
+#import "KeyboardInputView.h"
 
-@interface ChecklistViewController : UITableViewController
+
+@interface ChecklistViewController : UITableViewController <KeyboardInputViewDelegate>
 
 @property(nonatomic, strong) Checklist *collection;
 

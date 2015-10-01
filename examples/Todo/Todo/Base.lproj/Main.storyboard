@@ -43,8 +43,36 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="All" id="jte-Xg-ImC"/>
+                    <connections>
+                        <outlet property="keyboardBar" destination="6kz-yw-m2X" id="I6p-mk-Fv3"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HNo-QE-7D5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" id="6kz-yw-m2X" customClass="KeyboardBar">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Xt6-Dc-02Y">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V3C-gc-ZfH">
+                                <rect key="frame" x="8" y="7" width="224" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="0.95000000000000007" alpha="0.5" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="V3C-gc-ZfH" firstAttribute="leading" secondItem="Xt6-Dc-02Y" secondAttribute="leading" constant="8" id="FEI-Hs-7Y3"/>
+                            <constraint firstAttribute="trailing" secondItem="V3C-gc-ZfH" secondAttribute="trailing" constant="8" id="VCn-j7-2yR"/>
+                            <constraint firstItem="V3C-gc-ZfH" firstAttribute="centerY" secondItem="Xt6-Dc-02Y" secondAttribute="centerY" id="rUX-l7-hBh"/>
+                        </constraints>
+                    </view>
+                    <blurEffect style="light"/>
+                    <connections>
+                        <outlet property="inputView" destination="V3C-gc-ZfH" id="37q-QS-2xY"/>
+                    </connections>
+                </visualEffectView>
             </objects>
             <point key="canvasLocation" x="1018" y="0.0"/>
         </scene>

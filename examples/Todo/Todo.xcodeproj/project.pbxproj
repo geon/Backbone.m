@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		385220A11BBDBAB300B7B0EB /* KeyboardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 385220A01BBDBAB300B7B0EB /* KeyboardInputView.m */; settings = {ASSET_TAGS = (); }; };
 		387488591BAF453E007A1282 /* Checklist.m in Sources */ = {isa = PBXBuildFile; fileRef = 387488541BAF453E007A1282 /* Checklist.m */; settings = {ASSET_TAGS = (); }; };
 		3874885A1BAF453E007A1282 /* ChecklistItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 387488561BAF453E007A1282 /* ChecklistItem.m */; settings = {ASSET_TAGS = (); }; };
 		3874885B1BAF453E007A1282 /* ChecklistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387488581BAF453E007A1282 /* ChecklistViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3852209F1BBDBAB300B7B0EB /* KeyboardInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyboardInputView.h; path = ../../../KeyboardInputView.h; sourceTree = "<group>"; };
+		385220A01BBDBAB300B7B0EB /* KeyboardInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyboardInputView.m; path = ../../../KeyboardInputView.m; sourceTree = "<group>"; };
 		387488531BAF453E007A1282 /* Checklist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Checklist.h; sourceTree = "<group>"; };
 		387488541BAF453E007A1282 /* Checklist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Checklist.m; sourceTree = "<group>"; };
 		387488551BAF453E007A1282 /* ChecklistItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChecklistItem.h; sourceTree = "<group>"; };
@@ -120,6 +123,8 @@
 				387488561BAF453E007A1282 /* ChecklistItem.m */,
 				387488571BAF453E007A1282 /* ChecklistViewController.h */,
 				387488581BAF453E007A1282 /* ChecklistViewController.m */,
+				3852209F1BBDBAB300B7B0EB /* KeyboardInputView.h */,
+				385220A01BBDBAB300B7B0EB /* KeyboardInputView.m */,
 				38C447301B9C719F0080B4F5 /* Main.storyboard */,
 				38C447331B9C719F0080B4F5 /* Images.xcassets */,
 				38C447351B9C719F0080B4F5 /* LaunchScreen.xib */,
@@ -264,6 +269,7 @@
 				38A301B51BA5A62600220262 /* BackboneCollection.m in Sources */,
 				387488641BB73DF5007A1282 /* BackboneUITableViewCollection.m in Sources */,
 				38C447261B9C719F0080B4F5 /* main.m in Sources */,
+				385220A11BBDBAB300B7B0EB /* KeyboardInputView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
