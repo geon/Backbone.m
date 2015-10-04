@@ -10,9 +10,9 @@
 
 @implementation Checklist
 
-+ (NSString *)modelClassName {
++ (Class)modelClass {
 
-	return @"ChecklistItem";
+	return ChecklistItem.class;
 }
 
 @end

@@ -21,7 +21,7 @@
 
 // Deserialization
 + (id)collectionWithArrayOfDictionaries:(NSArray *)array;
-+ (NSString *)modelClassName;
++ (Class)modelClass;
 
 // Serialization
 - (NSArray *)arrayOfDictionariesWithOptions:(BackboneModelOption)options;

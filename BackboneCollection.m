@@ -109,20 +109,19 @@
 	for (NSDictionary *dictionary in array) {
 
 		[collection add:
-		 [NSClassFromString([self modelClassName])
-		  modelWidhDictionary:dictionary]];
+		 [self.modelClass modelWidhDictionary:dictionary]];
 	}
 
 	return collection;
 }
 
 
-+ (NSString *)modelClassName {
++ (Class)modelClass {
 
 	// Please override.
 	assert(0);
 
-	return nil;
+	return BackboneModel.class;
 }
 
 
