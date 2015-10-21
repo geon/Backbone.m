@@ -18,13 +18,11 @@ typedef enum {
 - (NSDictionary *)toDictionaryWithOptions:(BackboneModelOption)options;
 
 
-// Really should return promises.
+// Really should return promises. (Or a new object that will eventually trigger a sync event?)
 - (void)saveWithOptions:(BackboneModelOption)options;
 - (void)fetchWithOptions:(BackboneModelOption)options;
 - (void)destroyWithOptions:(BackboneModelOption)options;
 - (void)syncUsingMethod:(NSString *)method
 			withOptions:(BackboneModelOption)options;
-
-+ (NSURL *)urlForModel:(BackboneModel *)model;
 
 @end

@@ -24,10 +24,8 @@
     
 	self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
-	self.collection = [Checklist collectionWithArrayOfDictionaries:
-					   @[@{@"title": @"First", @"completed": @true},
-						 @{@"title": @"Then", @"completed": @false},
-						 @{@"title": @"Also", @"completed": @false}]];
+	self.collection = [Checklist new];
+	[self.collection fetchWithOptions:0];
 
 	[self.collection setUpUITableViewEventHandlers:self.tableView];
 
