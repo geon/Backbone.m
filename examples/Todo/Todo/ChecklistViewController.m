@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
 	self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
 	self.collection = [Checklist collectionWithArrayOfDictionaries:
@@ -54,7 +54,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChecklistItem" forIndexPath:indexPath];
 
-	ChecklistItem *item = (ChecklistItem *) [self.collection findByPropertyNamed:@"indexPath" isEqual:indexPath];
+	ChecklistItem *item = (ChecklistItem *) [self.collection findByIndexPath:indexPath];
 
 	cell.textLabel.text = item.title;
 	cell.accessoryType = item.completed
@@ -67,7 +67,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-	ChecklistItem *item = (ChecklistItem *) [self.collection findByPropertyNamed:@"indexPath" isEqual:indexPath];
+	ChecklistItem *item = (ChecklistItem *) [self.collection findByIndexPath:indexPath];
 	item.completed = !item.completed;
 }
 
@@ -83,7 +83,7 @@
 	if (editingStyle == UITableViewCellEditingStyleDelete) {
 
 		// Trigger deletion.
-		[[self.collection findByPropertyNamed:@"indexPath" isEqual:indexPath] destroyWithOptions:0];
+		[[self.collection findByIndexPath:indexPath] destroyWithOptions:0];
     }
 }
 
