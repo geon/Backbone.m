@@ -10,9 +10,15 @@
 
 @implementation Checklist
 
-+ (NSString *)modelClassName {
++ (Class)modelClass {
 
-	return @"ChecklistItem";
+	return ChecklistItem.class;
+}
+
+
++ (NSURL *)url {
+
+	return [NSURL URLWithString:@"https://raw.githubusercontent.com/geon/Backbone.m/master/examples/Todo/Todo/checklist-items.json"];
 }
 
 @end

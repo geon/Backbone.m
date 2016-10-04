@@ -11,4 +11,9 @@
 
 @implementation ChecklistItem
 
++ (NSURL *)urlForModel:(BackboneModel *)model {
+
+	return [NSURL URLWithString:@"http://"];
+}
+
 @end

@@ -11,6 +11,8 @@
 @interface BackboneCollection ()
 
 @property(nonatomic, strong) NSMutableSet <BackboneModel*> *models;
+@property (nonatomic, strong) NSHTTPURLResponse *response;
+@property (nonatomic, strong) NSMutableData *data;
 
 @end
 
@@ -28,9 +30,26 @@
 }
 
 
++ (id)idOfModel:(BackboneModel *)model {
+
+	return [model valueForKey:[self.class.modelClass idPropertyName]];
+}
+
 - (void)add:(BackboneModel *)model {
 
-	NSLog(@"TODO: Check id and update in place if existing.");
+	// Check id and refuse if existing.
+	id newModelId = [self.class idOfModel:model];
+	if (newModelId) {
+
+		for (BackboneModel *existingModel in self.models) {
+
+			if ([[self.class idOfModel:existingModel] isEqual:newModelId]) {
+
+				// Allready exists!
+				return;
+			}
+		}
+	}
 
 	// Propagate change events from models.
 	[model onEventNamed:@"change"
@@ -109,20 +128,19 @@
 	for (NSDictionary *dictionary in array) {
 
 		[collection add:
-		 [NSClassFromString([self modelClassName])
-		  modelWidhDictionary:dictionary]];
+		 [self.modelClass modelWidhDictionary:dictionary]];
 	}
 
 	return collection;
 }
 
 
-+ (NSString *)modelClassName {
++ (Class)modelClass {
 
 	// Please override.
 	assert(0);
 
-	return nil;
+	return BackboneModel.class;
 }
 
 
@@ -136,6 +154,112 @@
 	}
 
 	return [NSArray arrayWithArray:dictionaries];
+}
+
+
++ (NSURL *)url {
+
+	// Please override.
+	assert(0);
+
+	return nil;
+}
+
+
++ (NSURL *)urlForModel:(BackboneModel *)model {
+
+	return [[self url] URLByAppendingPathComponent:
+			[[model valueForKey:[model.class idPropertyName]] description]];
+}
+
+
+
+
+- (void)fetchWithOptions:(BackboneModelOption)options {
+
+	NSMutableURLRequest *request = [NSMutableURLRequest new];
+	request.URL = self.class.url;
+	request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+
+	(void) [[NSURLConnection alloc] initWithRequest:request
+										   delegate:self
+								   startImmediately:YES];
+}
+
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+
+	self.response = (NSHTTPURLResponse *)response;
+	self.data = [NSMutableData data];
+	[self.data setLength:0];
+}
+
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)bytes {
+
+	[self.data appendData:bytes];
+}
+
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+
+	self.response = nil;
+	self.data = nil;
+}
+
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+
+	NSError *error = nil;
+
+	// Catch HTTP error statii.
+	NSUInteger statusCode = self.response.statusCode;
+	if (statusCode >= 400) {
+
+		error = [NSError errorWithDomain:@"fetch"
+									code:statusCode
+								userInfo:nil];
+	}
+
+	NSArray *JSONObject = nil;
+	if (!error) {
+
+		JSONObject = [NSJSONSerialization JSONObjectWithData:self.data
+													 options:0
+													   error:&error];
+	}
+
+	if (![JSONObject isKindOfClass:[NSArray class]]) {
+
+		error = [NSError errorWithDomain:@"fetch"
+									code:0
+								userInfo:nil];
+	}
+
+	if (!error) {
+
+		NSString *idPropertyName = [self.class.modelClass idPropertyName];
+		for (NSDictionary *dictionary in JSONObject) {
+
+			BackboneModel *existingModel = [self findByPropertyNamed:idPropertyName isEqual:dictionary[idPropertyName]];
+
+			if (!existingModel) {
+
+				[self add:[self.class.modelClass modelWidhDictionary:dictionary]];
+
+			} else {
+
+				for (NSString *propertyName in dictionary) {
+
+					[existingModel setValue:dictionary[propertyName]
+									 forKey:propertyName];
+				}
+			}
+		}
+	}
+
+	self.response = nil;
+	self.data = nil;
 }
 
 @end

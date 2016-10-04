@@ -10,9 +10,11 @@
 
 - (void)setUpUITableViewEventHandlers:(UITableView *)tableView {
 
-	[self onEventNamed:@"change:completed"
+	[self onEventNamed:@"change"
 			 inContext:nil
-	   handleEventWith:^(id context, BackboneUITableViewModel *model) {
+	   handleEventWith:^(id context, NSDictionary *event) {
+
+		   BackboneUITableViewModel *model = event[@"model"];
 
 		   // Re-render the row.
 		   [tableView reloadRowsAtIndexPaths:@[model.indexPath]

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		385220A31BBFD64700B7B0EB /* checklist-items.json in Resources */ = {isa = PBXBuildFile; fileRef = 385220A21BBFD64700B7B0EB /* checklist-items.json */; };
 		387488591BAF453E007A1282 /* Checklist.m in Sources */ = {isa = PBXBuildFile; fileRef = 387488541BAF453E007A1282 /* Checklist.m */; };
 		3874885A1BAF453E007A1282 /* ChecklistItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 387488561BAF453E007A1282 /* ChecklistItem.m */; };
 		3874885B1BAF453E007A1282 /* ChecklistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387488581BAF453E007A1282 /* ChecklistViewController.m */; };
@@ -20,21 +21,11 @@
 		38C447321B9C719F0080B4F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C447301B9C719F0080B4F5 /* Main.storyboard */; };
 		38C447341B9C719F0080B4F5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38C447331B9C719F0080B4F5 /* Images.xcassets */; };
 		38C447371B9C719F0080B4F5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38C447351B9C719F0080B4F5 /* LaunchScreen.xib */; };
-		38C447431B9C71A00080B4F5 /* TodoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C447421B9C71A00080B4F5 /* TodoTests.m */; };
-		91AD161C1DA39A2900F5459B /* KeyboardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AD161B1DA39A2900F5459B /* KeyboardInputView.m */; };
+		91AD161F1DA39CFF00F5459B /* KeyboardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AD161E1DA39CFF00F5459B /* KeyboardInputView.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		38C4473D1B9C719F0080B4F5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 38C447181B9C719F0080B4F5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 38C4471F1B9C719F0080B4F5;
-			remoteInfo = Todo;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		385220A21BBFD64700B7B0EB /* checklist-items.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "checklist-items.json"; sourceTree = "<group>"; };
 		387488531BAF453E007A1282 /* Checklist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Checklist.h; sourceTree = "<group>"; };
 		387488541BAF453E007A1282 /* Checklist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Checklist.m; sourceTree = "<group>"; };
 		387488551BAF453E007A1282 /* ChecklistItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChecklistItem.h; sourceTree = "<group>"; };
@@ -59,22 +50,14 @@
 		38C447311B9C719F0080B4F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		38C447331B9C719F0080B4F5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		38C447361B9C719F0080B4F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		38C4473C1B9C719F0080B4F5 /* TodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38C447411B9C71A00080B4F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38C447421B9C71A00080B4F5 /* TodoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodoTests.m; sourceTree = "<group>"; };
-		91AD161A1DA39A2900F5459B /* KeyboardInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardInputView.h; sourceTree = "<group>"; };
-		91AD161B1DA39A2900F5459B /* KeyboardInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardInputView.m; sourceTree = "<group>"; };
+		91AD161D1DA39CFF00F5459B /* KeyboardInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardInputView.h; sourceTree = "<group>"; };
+		91AD161E1DA39CFF00F5459B /* KeyboardInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardInputView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		38C4471D1B9C719F0080B4F5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		38C447391B9C719F0080B4F5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -97,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				38C447201B9C719F0080B4F5 /* Todo.app */,
-				38C4473C1B9C719F0080B4F5 /* TodoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,8 +105,9 @@
 				387488561BAF453E007A1282 /* ChecklistItem.m */,
 				387488571BAF453E007A1282 /* ChecklistViewController.h */,
 				387488581BAF453E007A1282 /* ChecklistViewController.m */,
-				91AD161A1DA39A2900F5459B /* KeyboardInputView.h */,
-				91AD161B1DA39A2900F5459B /* KeyboardInputView.m */,
+				91AD161D1DA39CFF00F5459B /* KeyboardInputView.h */,
+				91AD161E1DA39CFF00F5459B /* KeyboardInputView.m */,
+				385220A21BBFD64700B7B0EB /* checklist-items.json */,
 				38C447301B9C719F0080B4F5 /* Main.storyboard */,
 				38C447331B9C719F0080B4F5 /* Images.xcassets */,
 				38C447351B9C719F0080B4F5 /* LaunchScreen.xib */,
@@ -179,39 +162,17 @@
 			productReference = 38C447201B9C719F0080B4F5 /* Todo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		38C4473B1B9C719F0080B4F5 /* TodoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 38C447491B9C71A00080B4F5 /* Build configuration list for PBXNativeTarget "TodoTests" */;
-			buildPhases = (
-				38C447381B9C719F0080B4F5 /* Sources */,
-				38C447391B9C719F0080B4F5 /* Frameworks */,
-				38C4473A1B9C719F0080B4F5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				38C4473E1B9C719F0080B4F5 /* PBXTargetDependency */,
-			);
-			name = TodoTests;
-			productName = TodoTests;
-			productReference = 38C4473C1B9C719F0080B4F5 /* TodoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		38C447181B9C719F0080B4F5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Victor Widell";
 				TargetAttributes = {
 					38C4471F1B9C719F0080B4F5 = {
 						CreatedOnToolsVersion = 6.4;
-					};
-					38C4473B1B9C719F0080B4F5 = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 38C4471F1B9C719F0080B4F5;
 					};
 				};
 			};
@@ -229,7 +190,6 @@
 			projectRoot = "";
 			targets = (
 				38C4471F1B9C719F0080B4F5 /* Todo */,
-				38C4473B1B9C719F0080B4F5 /* TodoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -240,15 +200,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				38C447321B9C719F0080B4F5 /* Main.storyboard in Resources */,
+				385220A31BBFD64700B7B0EB /* checklist-items.json in Resources */,
 				38C447371B9C719F0080B4F5 /* LaunchScreen.xib in Resources */,
 				38C447341B9C719F0080B4F5 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		38C4473A1B9C719F0080B4F5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,27 +223,11 @@
 				38A301B51BA5A62600220262 /* BackboneCollection.m in Sources */,
 				387488641BB73DF5007A1282 /* BackboneUITableViewCollection.m in Sources */,
 				38C447261B9C719F0080B4F5 /* main.m in Sources */,
-				91AD161C1DA39A2900F5459B /* KeyboardInputView.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		38C447381B9C719F0080B4F5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				38C447431B9C71A00080B4F5 /* TodoTests.m in Sources */,
+				91AD161F1DA39CFF00F5459B /* KeyboardInputView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		38C4473E1B9C719F0080B4F5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 38C4471F1B9C719F0080B4F5 /* Todo */;
-			targetProxy = 38C4473D1B9C719F0080B4F5 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		38C447301B9C719F0080B4F5 /* Main.storyboard */ = {
@@ -332,6 +270,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -397,6 +336,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Todo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "none.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -407,41 +347,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Todo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "none.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		38C4474A1B9C71A00080B4F5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = TodoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Todo.app/Todo";
-			};
-			name = Debug;
-		};
-		38C4474B1B9C71A00080B4F5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = TodoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Todo.app/Todo";
 			};
 			name = Release;
 		};
@@ -462,15 +369,6 @@
 			buildConfigurations = (
 				38C447471B9C71A00080B4F5 /* Debug */,
 				38C447481B9C71A00080B4F5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		38C447491B9C71A00080B4F5 /* Build configuration list for PBXNativeTarget "TodoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				38C4474A1B9C71A00080B4F5 /* Debug */,
-				38C4474B1B9C71A00080B4F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

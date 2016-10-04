@@ -92,13 +92,7 @@
 		id value = [dictionary objectForKey:propertyName];
 		if (value) {
 
-// Handle this manually in parse: instead?
-//			// Deserialize models and collections recursively.
-//			Class modelClass = [self modelClassForPropertyName:propertyName];
-//			if (modelClass) {
-//
-//				value = [modelClass modelWidhDictionary:value];
-//			}
+			// Handle recursive models in parse:.
 
 			[model setValue:value
 					 forKey:propertyName];
@@ -175,14 +169,6 @@
 
 
 	// TODO:
-}
-
-
-+ (NSURL *)urlForModel:(BackboneModel *)model {
-
-	// Please override.
-	assert(0);
-	return nil;
 }
 
 @end

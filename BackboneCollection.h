@@ -10,7 +10,7 @@
 #import "NSObject+BackboneEvents.h"
 #import "BackboneModel.h"
 
-@interface BackboneCollection : NSObject <BackboneEventsProtocol>
+@interface BackboneCollection : NSObject <BackboneEventsProtocol, NSURLConnectionDelegate>
 
 - (void)add:(BackboneModel *)model;
 - (void)remove:(BackboneModel *)model;
@@ -21,9 +21,13 @@
 
 // Deserialization
 + (id)collectionWithArrayOfDictionaries:(NSArray *)array;
-+ (NSString *)modelClassName;
++ (Class)modelClass;
 
 // Serialization
 - (NSArray *)arrayOfDictionariesWithOptions:(BackboneModelOption)options;
+
++ (NSURL *)url;
++ (NSURL *)urlForModel:(BackboneModel *)model;
+- (void)fetchWithOptions:(BackboneModelOption)options;
 
 @end
