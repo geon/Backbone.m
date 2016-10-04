@@ -37,7 +37,7 @@ Usage
 
     [self.model onEventNamed:@"change"
                    inContext:self
-             handleEventWith:^(FirstViewController *self, NSString *propertyName) {
+             handleEventWith:^(ExampleViewController *self, NSString *propertyName) {
 
                  [self updateView:propertyName];
              }];
