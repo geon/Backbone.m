@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		385220A11BBDBAB300B7B0EB /* KeyboardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 385220A01BBDBAB300B7B0EB /* KeyboardInputView.m */; settings = {ASSET_TAGS = (); }; };
-		387488591BAF453E007A1282 /* Checklist.m in Sources */ = {isa = PBXBuildFile; fileRef = 387488541BAF453E007A1282 /* Checklist.m */; settings = {ASSET_TAGS = (); }; };
-		3874885A1BAF453E007A1282 /* ChecklistItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 387488561BAF453E007A1282 /* ChecklistItem.m */; settings = {ASSET_TAGS = (); }; };
-		3874885B1BAF453E007A1282 /* ChecklistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387488581BAF453E007A1282 /* ChecklistViewController.m */; settings = {ASSET_TAGS = (); }; };
-		387488611BB72143007A1282 /* BackboneUITableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3874885F1BB72143007A1282 /* BackboneUITableViewModel.m */; settings = {ASSET_TAGS = (); }; };
-		387488641BB73DF5007A1282 /* BackboneUITableViewCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 387488631BB73DF5007A1282 /* BackboneUITableViewCollection.m */; settings = {ASSET_TAGS = (); }; };
+		387488591BAF453E007A1282 /* Checklist.m in Sources */ = {isa = PBXBuildFile; fileRef = 387488541BAF453E007A1282 /* Checklist.m */; };
+		3874885A1BAF453E007A1282 /* ChecklistItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 387488561BAF453E007A1282 /* ChecklistItem.m */; };
+		3874885B1BAF453E007A1282 /* ChecklistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387488581BAF453E007A1282 /* ChecklistViewController.m */; };
+		387488611BB72143007A1282 /* BackboneUITableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3874885F1BB72143007A1282 /* BackboneUITableViewModel.m */; };
+		387488641BB73DF5007A1282 /* BackboneUITableViewCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 387488631BB73DF5007A1282 /* BackboneUITableViewCollection.m */; };
 		38A301B51BA5A62600220262 /* BackboneCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A301B01BA5A62600220262 /* BackboneCollection.m */; };
 		38A301B61BA5A62600220262 /* BackboneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A301B21BA5A62600220262 /* BackboneModel.m */; };
 		38A301B71BA5A62600220262 /* NSObject+BackboneEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A301B41BA5A62600220262 /* NSObject+BackboneEvents.m */; };
@@ -22,6 +21,7 @@
 		38C447341B9C719F0080B4F5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38C447331B9C719F0080B4F5 /* Images.xcassets */; };
 		38C447371B9C719F0080B4F5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38C447351B9C719F0080B4F5 /* LaunchScreen.xib */; };
 		38C447431B9C71A00080B4F5 /* TodoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C447421B9C71A00080B4F5 /* TodoTests.m */; };
+		91AD161C1DA39A2900F5459B /* KeyboardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AD161B1DA39A2900F5459B /* KeyboardInputView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3852209F1BBDBAB300B7B0EB /* KeyboardInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyboardInputView.h; path = ../../../KeyboardInputView.h; sourceTree = "<group>"; };
-		385220A01BBDBAB300B7B0EB /* KeyboardInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyboardInputView.m; path = ../../../KeyboardInputView.m; sourceTree = "<group>"; };
 		387488531BAF453E007A1282 /* Checklist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Checklist.h; sourceTree = "<group>"; };
 		387488541BAF453E007A1282 /* Checklist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Checklist.m; sourceTree = "<group>"; };
 		387488551BAF453E007A1282 /* ChecklistItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChecklistItem.h; sourceTree = "<group>"; };
@@ -64,6 +62,8 @@
 		38C4473C1B9C719F0080B4F5 /* TodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38C447411B9C71A00080B4F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38C447421B9C71A00080B4F5 /* TodoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodoTests.m; sourceTree = "<group>"; };
+		91AD161A1DA39A2900F5459B /* KeyboardInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardInputView.h; sourceTree = "<group>"; };
+		91AD161B1DA39A2900F5459B /* KeyboardInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardInputView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +123,8 @@
 				387488561BAF453E007A1282 /* ChecklistItem.m */,
 				387488571BAF453E007A1282 /* ChecklistViewController.h */,
 				387488581BAF453E007A1282 /* ChecklistViewController.m */,
-				3852209F1BBDBAB300B7B0EB /* KeyboardInputView.h */,
-				385220A01BBDBAB300B7B0EB /* KeyboardInputView.m */,
+				91AD161A1DA39A2900F5459B /* KeyboardInputView.h */,
+				91AD161B1DA39A2900F5459B /* KeyboardInputView.m */,
 				38C447301B9C719F0080B4F5 /* Main.storyboard */,
 				38C447331B9C719F0080B4F5 /* Images.xcassets */,
 				38C447351B9C719F0080B4F5 /* LaunchScreen.xib */,
@@ -269,7 +269,7 @@
 				38A301B51BA5A62600220262 /* BackboneCollection.m in Sources */,
 				387488641BB73DF5007A1282 /* BackboneUITableViewCollection.m in Sources */,
 				38C447261B9C719F0080B4F5 /* main.m in Sources */,
-				385220A11BBDBAB300B7B0EB /* KeyboardInputView.m in Sources */,
+				91AD161C1DA39A2900F5459B /* KeyboardInputView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
