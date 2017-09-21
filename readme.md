@@ -94,7 +94,7 @@ Js                       | Objective C                                          
 -------------------------|-------------------------------------------------------------------------------------|---------
 extend                   |                                                                                     | Not idiomatic Objective C. Just use normal inheritence.
 constructor / initialize |                                                                                     | Not idiomatic Objective C. Just use the normal constructor.
-                         | + (id)modelWidhDictionary:(NSDictionary *)dictionary                                | This one, for example.
+\-                        | + (id)modelWidhDictionary:(NSDictionary *)dictionary                                | This one, for example.
 get                      |                                                                                     | Not idiomatic Objective C. Just use the properties.
 set                      |                                                                                     | Not idiomatic Objective C. Just use the properties.
 escape                   |                                                                                     | Useless outside a browser.
@@ -105,11 +105,11 @@ id                       |                                                      
 idAttribute              | + (NSString *)idPropertyName                                                        | Read only.
 cid                      |                                                                                     | Not yet implemented.
 attributes               |                                                                                     | Not idiomatic Objective C.
-                         | + (NSSet *)propertyNames                                                            | Use this instead.
+\-                        | + (NSSet *)propertyNames                                                            | Use this instead.
 changed                  |                                                                                     | Not yet implemented.
 defaults                 |                                                                                     | Not idiomatic Objective C.
 toJSON                   |                                                                                     | Not yet implemented.
-                         | - (NSDictionary *)toDictionaryWithOptions:(BackboneModelOption)options              | Sort of replaces toJSON.
+\-                        | - (NSDictionary *)toDictionaryWithOptions:(BackboneModelOption)options              | Sort of replaces toJSON.
 sync                     | - (void)syncUsingMethod:(NSString *)method withOptions:(BackboneModelOption)options |
 fetch                    | - (void)fetchWithOptions:(BackboneModelOption)options                               |
 save                     | - (void)saveWithOptions:(BackboneModelOption)options                                | Not idiomatic Objective C. Can't set multiple properties at once.
